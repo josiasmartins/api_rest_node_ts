@@ -11,7 +11,7 @@ export class Subject {
     name: string;
 
     @ManyToMany(() => Room, room => room.subjects)
-    @JoinTable({
+    @JoinTable({ // ligação entre mais duas tabelas
         name: 'room_subject',
         joinColumn: {
             name: "room_id",
@@ -21,7 +21,7 @@ export class Subject {
             name: 'subject_id',
             referencedColumnName: 'id'
         }
-    }) // ligação entre mais duas tabelas
+    })
     rooms: Room[]
 
 }
