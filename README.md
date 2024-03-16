@@ -9,7 +9,7 @@ npm init -y
 npm install typescript --save-dev nodemon ts-node @types/express @types/node
 
 # prod
-npm install express pg typeorm dotenv reflect-metada --save
+npm install express pg typeorm dotenv reflect-metadata --save
 
 ```
 
