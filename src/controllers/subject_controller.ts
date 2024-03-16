@@ -12,9 +12,8 @@ export class SubjectController {
         }
 
         try {
-            const newSubject = sujectRepository.create({ name });
+            const newSubject = sujectRepository.create({ });
 
-            console.log(newSubject);
             await sujectRepository.save(newSubject);
 
             return res.status(201).json(newSubject);
