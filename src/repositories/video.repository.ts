@@ -1,5 +1,4 @@
-import { AppDataSource } from "../data-source";
-import { Room } from "../entities/room";
+import { AppDataSource } from "../config/db/data-source";
 import { Video } from "../entities/video";
 
 export const videoRepository = AppDataSource.getRepository(Video);

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node ./src/index.ts",
-    "migration:generate": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:generate ./src/migrations/default",
-    "migration:run": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:run"
+    "start:dev": "ts-node ./src/config/swagger/swagger.ts && nodemon --exec ts-node ./src/index.ts",
+    "migration:generate": "typeorm-ts-node-commonjs -d ./src/config/db/data-source.ts migration:generate ./src/migrations/default",
+    "migration:run": "typeorm-ts-node-commonjs -d ./src/config/db/data-source.ts migration:run"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +14,9 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.11.28",
+    "@types/swagger-ui-express": "^4.1.6",
     "nodemon": "^3.1.0",
+    "swagger-autogen": "^2.23.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.2"
   },
@@ -25,6 +27,7 @@
     "mysql": "npm:mysql2@^2.1.0",
     "pg": "^8.11.3",
     "reflect-metadata": "^0.2.1",
+    "swagger-ui-express": "^5.0.0",
     "typeorm": "^0.3.20"
   }
 }
