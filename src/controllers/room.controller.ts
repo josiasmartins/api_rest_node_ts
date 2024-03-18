@@ -5,16 +5,6 @@ import { sujectRepository } from "../repositories/subject_repository";
 
 export class RoomController {
 
-    addTagsSwagger() {
-        return `
-        /*
-        #swagger.tags = ['Subject']
-        #swagger.summary = 'Create a new user'
-        #swagger.description = 'This endpoint will create a new user...'
-    */
-        `
-    }
-
     async create(req: Request, res: Response) {
         /*
             #swagger.tags = ['Room']
