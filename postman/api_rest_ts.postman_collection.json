@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "8617430a-5158-4be6-8bbc-149d36e77a19",
+		"name": "api_rest_ts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11087463",
+		"_collection_link": "https://martian-escape-358671.postman.co/workspace/estudo~506a2aef-ad07-4f1d-9ec2-d56bcc0fd652/collection/11087463-8617430a-5158-4be6-8bbc-149d36e77a19?action=share&source=collection_link&creator=11087463"
+	},
+	"item": [
+		{
+			"name": "disciplina",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"desenvolvimento web - angular\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/subject"
+			},
+			"response": []
+		},
+		{
+			"name": "criar sala",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Alchimist\",\r\n    \"description\": \"Alchimist\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/room"
+			},
+			"response": []
+		},
+		{
+			"name": "listar aulas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Alchimist\",\r\n    \"description\": \"Alchimist\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/room"
+			},
+			"response": []
+		},
+		{
+			"name": "criar video da aula",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"introdução\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/room"
+			},
+			"response": []
+		},
+		{
+			"name": "adicionar disciplina a aula",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"introdução\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/room"
+			},
+			"response": []
+		}
+	]
+}
