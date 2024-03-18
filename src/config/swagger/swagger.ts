@@ -23,7 +23,7 @@ const doc = {
     }
 };
 
-const outputFile = '../swagger_output.json';
+const outputFile = './swagger_output.json';
 
 // const outputFile = path.join(__dirname, '..', 'swagger_output.json');
 

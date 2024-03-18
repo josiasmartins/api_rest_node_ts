@@ -1,8 +1,8 @@
 import express from "express";
-import { AppDataSource } from "./data-source";
 import routes from "./routes";
 import swaggerUi from "swagger-ui-express";
-import swaggerOutput from "./config/swagger_output.json";
+import swaggerOutput from "./config/swagger/swagger_output.json";
+import { AppDataSource } from "./config/db/data-source";
 
 AppDataSource.initialize().then(() => {
     const app = express();
