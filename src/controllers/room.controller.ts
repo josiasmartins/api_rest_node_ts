@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { roomRepository } from "../repositories/room.repository";
 import { videoRepository } from "../repositories/video.repository";
 import { sujectRepository } from "../repositories/subject_repository";
+import { BadRequestError, NotFoundError } from "../helpers/api-error";
 
 export class RoomController {
 
@@ -13,16 +14,10 @@ export class RoomController {
         */
         const { name, description } = req.body;
 
-        try {
-            const newRoom = roomRepository.create({ name, description });
-            await roomRepository.save(newRoom);
+        const newRoom = roomRepository.create({ name, description });
+        await roomRepository.save(newRoom);
 
-            return res.status(201).json(newRoom);
-        } catch (error) {
-            console.log(error);
-
-            return res.status(500).json({ message: "Internal Server Error" })
-        }
+        return res.status(201).json(newRoom);
     }
 
     async createVideo(req: Request, res: Response) {
@@ -36,27 +31,20 @@ export class RoomController {
         const { title, url } = req.body;
         const { idRoom } = req.params;
 
-        try {
-            const room = await roomRepository.findOneBy({ id: Number(idRoom) });
+        const room = await roomRepository.findOneBy({ id: Number(idRoom) });
 
-            if (!room) {
-                return res.status(404).json({ message: 'Aula não existe' })
-            }
-
-            const newVideo = videoRepository.create({
-                title,
-                url,
-                room
-            });
-
-            await videoRepository.save(newVideo);
-            return res.status(201).json(newVideo);
-
-        } catch (error) {
-            console.log(error);
-
-            return res.status(500).json({ message: "Internal Server Error" })
+        if (!room) {
+            throw new BadRequestError('Aula não existe');
         }
+
+        const newVideo = videoRepository.create({
+            title,
+            url,
+            room
+        });
+
+        await videoRepository.save(newVideo);
+        return res.status(201).json(newVideo);
     }
 
 
@@ -71,18 +59,16 @@ export class RoomController {
         const { subject_id } = req.body;
         const { idRoom } = req.params;
 
-        try {
-
-            const room = await roomRepository.findOneBy({ id: Number(idRoom) });
+        const room = await roomRepository.findOneBy({ id: Number(idRoom) });
 
             if (!room) {
-                return res.status(404).json({ message: "Aula não encontrado" });
+                throw new BadRequestError("Aula não encontrado");
             }
 
             const subject = await sujectRepository.findOneBy({ id: Number(subject_id) });
 
             if (!subject) {
-                return res.status(404).json({ message: "Disciplina não existe" });
+                throw new BadRequestError("Disciplina não existe");
             }
 
             const roomUpdate = {
@@ -98,12 +84,7 @@ export class RoomController {
             // });
 
             return res.status(204).send();
-
-        } catch (error) {
-            console.log(error);
-
-            return res.status(500).json({ message: "Internal Server Error" })
-        }
+     
     }
 
     async list(req: Request, res: Response) {
@@ -114,7 +95,6 @@ export class RoomController {
             #swagger.description = 'This endpoint will create a new user...'
         */
 
-        try {
             const rooms = await roomRepository.find({
                 relations: { // adiciona somente os relacionamentos desejados
                     subjects: true,
@@ -123,12 +103,6 @@ export class RoomController {
             });
 
             return res.status(200).json(rooms);
-
-        } catch (error) {
-            console.log(error);
-
-            return res.status(500).json({ message: "Internal Server Error" })
-        }
 
     }
 
