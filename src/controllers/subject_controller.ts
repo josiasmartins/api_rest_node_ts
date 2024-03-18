@@ -8,14 +8,14 @@ export class SubjectController {
         const { name } = req.body;
 
         if (!name) {
-            return res.json({ message: "O nome é obrigatório" })
+            return res.status(400).json({ message: "O nome é obrigatório" })
         }
 
         try {
-            const newSubject = sujectRepository.create({ });
+            const newSubject = sujectRepository.create({ name });
 
             await sujectRepository.save(newSubject);
-
+            
             return res.status(201).json(newSubject);
         } catch (error) {
             console.log(error);

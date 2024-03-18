@@ -60,24 +60,51 @@ export class RoomController {
                 return res.status(404).json({ message: "Aula não encontrado" });
             }
 
-            const subject = await sujectRepository.findOneBy({ id: Number(subject_id) } as any);
+            const subject = await sujectRepository.findOneBy({ id: Number(subject_id) });
 
             if (!subject) {
                 return res.status(404).json({ message: "Disciplina não existe" });
             }
 
-            await roomRepository.update(idRoom, {
+            const roomUpdate = {
                 ...room,
-                subjects: [subject as any]
-            });
+                subjects: [subject]
+            };
 
-            return res.status(200).json(room);
+            await roomRepository.save(roomUpdate);
+
+            // await roomRepository.update(idRoom, {
+            //     ...room,
+            //     subjects: [subject]
+            // });
+
+            return res.status(204).send();
 
         } catch (error) {
             console.log(error);
 
             return res.status(500).json({ message: "Internal Server Error" })
         }
+    }
+
+    async list(req: Request, res: Response) {
+
+        try {
+            const rooms = await roomRepository.find({
+                relations: { // adiciona somente os relacionamentos desejados
+                    subjects: true,
+                    videos: true
+                }
+            });
+
+            return res.status(200).json(rooms);
+
+        } catch (error) {
+            console.log(error);
+
+            return res.status(500).json({ message: "Internal Server Error" })
+        }
+
     }
 
 }
