@@ -5,7 +5,22 @@ import { sujectRepository } from "../repositories/subject_repository";
 
 export class RoomController {
 
+    addTagsSwagger() {
+        return `
+        /*
+        #swagger.tags = ['Subject']
+        #swagger.summary = 'Create a new user'
+        #swagger.description = 'This endpoint will create a new user...'
+    */
+        `
+    }
+
     async create(req: Request, res: Response) {
+        /*
+            #swagger.tags = ['Room']
+            #swagger.summary = 'Create a new user'
+            #swagger.description = 'This endpoint will create a new user...'
+        */
         const { name, description } = req.body;
 
         try {
@@ -21,6 +36,13 @@ export class RoomController {
     }
 
     async createVideo(req: Request, res: Response) {
+
+        /*
+            #swagger.tags = ['Room']
+            #swagger.summary = 'Create a new user'
+            #swagger.description = 'This endpoint will create a new user...'
+        */
+
         const { title, url } = req.body;
         const { idRoom } = req.params;
 
@@ -49,6 +71,13 @@ export class RoomController {
 
 
     async roomSubject(req: Request, res: Response) {
+
+        /*
+            #swagger.tags = ['Room']
+            #swagger.summary = 'Create a new user'
+            #swagger.description = 'This endpoint will create a new user...'
+        */
+
         const { subject_id } = req.body;
         const { idRoom } = req.params;
 
@@ -88,6 +117,12 @@ export class RoomController {
     }
 
     async list(req: Request, res: Response) {
+
+        /*
+            #swagger.tags = ['Room']
+            #swagger.summary = 'Create a new user'
+            #swagger.description = 'This endpoint will create a new user...'
+        */
 
         try {
             const rooms = await roomRepository.find({

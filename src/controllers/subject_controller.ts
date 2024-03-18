@@ -3,8 +3,13 @@ import { sujectRepository } from "../repositories/subject_repository";
 
 export class SubjectController {
 
+    
     async create(req: Request, res: Response) {
-        
+        /*
+            #swagger.tags = ['Subject']
+            #swagger.summary = 'Create a new user'
+            #swagger.description = 'This endpoint will create a new user...'
+        */
         const { name } = req.body;
 
         if (!name) {
