@@ -16,7 +16,7 @@ export class UserController {
             throw new BadRequestError("E-mail já existe");
         }
 
-        const hasPassword = await  bcrypt.hash(password, 10);
+        const hasPassword = await  bcrypt.hash(password, 10); 
 
         const newUser = userRepository.create({
             name,

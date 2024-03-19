@@ -31,6 +31,9 @@ npx tsc --init
 ```
 npm i bcrypt --save
 npm i @types/bcrypt --save-dev
+
+npm install jsonwebtoken --save
+npm install @types/jsonwebtoken --save-dev
 ```
 
 

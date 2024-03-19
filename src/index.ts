@@ -21,6 +21,7 @@ AppDataSource.initialize().then(() => {
 
     app.use(errorMiddleware);
 
+    console.log(`servidor escutando na porta ${process.env.PORT}`);
     return app.listen(process.env.PORT)
 
 })
