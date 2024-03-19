@@ -70,7 +70,7 @@
       }
     },
     "/profile": {
-      "post": {
+      "get": {
         "description": "",
         "parameters": [
           {
@@ -82,8 +82,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       }

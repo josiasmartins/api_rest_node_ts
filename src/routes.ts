@@ -11,9 +11,9 @@ const routes = Router();
 routes.post('/user', new UserController().create);
 routes.post('/login', new LoginController().create);
 
-routes.use(authMiddlewares);
+// routes.use(authMiddlewares);
 
-routes.get('/profile', new LoginController().getProfile);
+routes.get('/profile', authMiddlewares, new LoginController().getProfile);
 routes.post('/subject', new SubjectController().create);
 routes.post('/room', new RoomController().create);
 routes.get('/room', new RoomController().list);
