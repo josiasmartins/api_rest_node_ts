@@ -39,5 +39,7 @@ npm install @types/jsonwebtoken --save-dev
 
 #### link videos
 [API REST com Node.js e TypeScript | TypeORM [Atualizado]](https://www.youtube.com/watch?v=j8cm2C5-xn8)
+<br>
 [Tratamento de erros no Express.js com TypeScript](https://www.youtube.com/watch?v=SnxAq9ktyuo&t=1841s)
+<br>
 [Login | Autenticação JWT com Node.js e TypeScript](https://www.youtube.com/watch?v=r4gjCn2r-iw&t=4501s)
