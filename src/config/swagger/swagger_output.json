@@ -12,12 +12,32 @@
     }
   ],
   "paths": {
-    "/": {
-      "get": {
+    "/user": {
+      "post": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "201": {
+            "description": "Created"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -30,14 +50,8 @@
         "summary": "Create a new user",
         "description": "This endpoint will create a new user...",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "201": {
             "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
           }
         },
         "requestBody": {
@@ -66,9 +80,6 @@
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "requestBody": {
@@ -98,9 +109,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -125,12 +133,6 @@
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "requestBody": {
@@ -172,12 +174,6 @@
         "responses": {
           "204": {
             "description": "No Content"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "requestBody": {

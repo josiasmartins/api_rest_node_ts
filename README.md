@@ -26,6 +26,13 @@ after, create file ts
 npx tsc --init
 ```
 
+## add autenticao jwt
+
+```
+npm i bcrypt --save
+npm i @types/bcrypt --save-dev
+```
+
 
 #### link videos
 [API REST com Node.js e TypeScript | TypeORM [Atualizado]](https://www.youtube.com/watch?v=j8cm2C5-xn8)
