@@ -12,6 +12,7 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
     const { authorization } = req.headers;
 
     if (!authorization) {
+        console.log("DEU ERRO, " + authorization)
         throw new UnauthorizedError("Não authorizado");
     }
 
