@@ -7,7 +7,7 @@ type JwtPayload = {
     id: number
 }
 
-export const authMiddlewares = async (req: Request, res: Response, next: NextFunction) => {
+export const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
 
     const { authorization } = req.headers;
 
